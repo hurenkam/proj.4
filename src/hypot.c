@@ -16,7 +16,8 @@
 **	in range!
 */
 extern double sqrt(double);
-	double
+#if !defined(_MSC_VER)
+double
 hypot(double x, double y) {
 	if ( x < 0.)
 		x = -x;
@@ -34,3 +35,4 @@ hypot(double x, double y) {
 		return ( x * sqrt( 1. + y * y ) );
 	}
 }
+#endif

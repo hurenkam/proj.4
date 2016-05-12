@@ -56,6 +56,9 @@ void pj_set_ctx( projPJ pj, projCtx ctx )
 /************************************************************************/
 /*                         pj_get_default_ctx()                         */
 /************************************************************************/
+#ifndef getenv
+#define getenv(x) ( NULL )
+#endif
 
 projCtx pj_get_default_ctx()
 

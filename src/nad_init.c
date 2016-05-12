@@ -152,6 +152,9 @@ struct CTABLE *nad_ctable_init( projCtx ctx, PAFile fid )
 /*                                                                      */
 /*      Load the data portion of a ctable2 formatted grid.              */
 /************************************************************************/
+#ifndef getenv
+#define getenv(x) ( NULL )
+#endif
 
 int nad_ctable2_load( projCtx ctx, struct CTABLE *ct, PAFile fid )
 

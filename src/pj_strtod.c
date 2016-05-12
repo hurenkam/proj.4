@@ -76,7 +76,17 @@ static char* pj_replace_point_by_locale_point(const char* pszNumber, char point,
                                               char* pszWorkBuffer)
 {
 #if !defined(HAVE_LOCALECONV) || defined(_WIN32_WCE)
-#warning "localeconv not available"
+
+#if defined(_MSC_VER)
+#   define TOSTRING_IMPL(x) #x
+#   define TOSTRING(x) TOSTRING_IMPL(x)
+#   define POSITION __FILE__ "(" TOSTRING(__LINE__) "): "
+#   define WARNING(message) (POSITION "WARNING: " message)
+#   pragma message WARNING( "localeconv not available" )
+#else
+#   warning "localeconv not available"
+#endif
+
     static char byPoint = 0;
     if (byPoint == 0)
     {

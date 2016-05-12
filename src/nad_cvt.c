@@ -2,6 +2,11 @@
 #include <projects.h>
 #define MAX_TRY 9
 #define TOL 1e-12
+
+#ifndef getenv
+#define getenv(x) ( NULL )
+#endif
+
 	LP
 nad_cvt(LP in, int inverse, struct CTABLE *ct) {
 	LP t, tb;

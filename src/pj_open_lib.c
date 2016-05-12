@@ -107,8 +107,11 @@ pj_open_lib(projCtx ctx, const char *name, const char *mode) {
     static const char dir_chars[] = "/";
 #endif
 
-#ifndef _WIN32_WCE
+#ifndef getenv
+#define getenv(x) ( NULL )
+#endif
 
+#ifndef _WIN32_WCE
     /* check if ~/name */
     if (*name == '~' && strchr(dir_chars,name[1]) )
         if ((sysname = getenv("HOME")) != NULL) {

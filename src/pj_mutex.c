@@ -42,10 +42,10 @@
 #endif
 
 /* on win32 we always use win32 mutexes, even if pthreads are available */
-#if defined(_WIN32) && !defined(MUTEX_stub)
-#  define MUTEX_win32
-#  undef  MUTEX_pthread
-#endif
+//#if defined(_WIN32) && !defined(MUTEX_stub)
+//#  define MUTEX_win32
+//#  undef  MUTEX_pthread
+//#endif
 
 #if !defined(MUTEX_stub) && !defined(MUTEX_pthread) && !defined(MUTEX_win32)
 #  define MUTEX_stub
